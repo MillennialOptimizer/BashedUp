@@ -114,6 +114,7 @@ function parseSentence(words){
     for(var i = 1; i < words.length; i++){
         sentence += words[i] + " "; 
     }
+    return sentence
 } 
 
 const usage = "\nUsage: tran <lang_name> sentence to be translated";
