@@ -1,3 +1,4 @@
+
 let languages = new Map();
 languages.set('afrikaans',      'af')  
 languages.set('albanian', 'sq')  
