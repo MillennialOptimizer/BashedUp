@@ -53,7 +53,17 @@ if(yargs.argv.ls == true){
     return;
 }
 
+// command for grep operation -> lists of the first index of occurrence of the word -> BashedUp arg1 arg2 --grep
+if(yargs.argv.grep == true){
+    var fileName = yargs.argv._[0]; 
+    var pattern = yargs.argv._[1];
+    if(fileName == null || pattern == null){
+        console.log('Please enter the inputs right, missing filename or pattern to be searched'); 
+    }
 
+    fileHandling.grepOperation(fileName, pattern); 
+    return;
+}
 
 if(yargs.argv._[0] == null){
     utils.showHelp();
