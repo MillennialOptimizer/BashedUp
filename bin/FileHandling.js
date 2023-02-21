@@ -2,11 +2,13 @@ const fs = require('fs');
 const StringSearch = require('../Algorithms/StringSearchAlgo');
 
 function catOperation(filename){
+    var dataFromFile = "";
     fs.readFile(filename, (err, data) => {
         if(err){
             console.log(err);
             return;
         }
+        dataFromFile = data.toString();
         console.log(data.toString());
     });
     return;
@@ -35,11 +37,12 @@ function grepOperation(fileName, word){
             console.log(err); 
             return;
         }
-        dataFromFile = data.toString();
+        var dataFromFile = data.toString();
+        var x = StringSearch.searchForString(word, dataFromFile);
+        console.log(word + " found at index " + x + " in " + fileName); 
     })
 
-    var x = StringSearch.searchForString(word, dataFromFile);
-    console.log(word + " found at index " + x + " in " + fileName);
+    
     return;
 }
 
