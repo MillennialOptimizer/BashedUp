@@ -38,11 +38,10 @@ function grepOperation(fileName, word){
             return;
         }
         var dataFromFile = data.toString();
-        var x = StringSearch.searchForString(word, dataFromFile);
+        var x = StringSearch.findPattern(word, dataFromFile);
         console.log(word + " found at index " + x + " in " + fileName); 
     })
 
-    
     return;
 }
 
