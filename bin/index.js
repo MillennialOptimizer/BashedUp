@@ -65,6 +65,18 @@ if(yargs.argv.grep == true){
     return;
 }
 
+if(yargs.argv.sort == true){
+    var fileName = yargs.argv._[0];
+
+    if(fileName == null){
+        console.log("Please enter a valid file address"); 
+        return;
+    }
+
+    fileHandling.sortOperation(fileName);
+    return;
+}
+
 if(yargs.argv._[0] == null){
     utils.showHelp();
     return;
