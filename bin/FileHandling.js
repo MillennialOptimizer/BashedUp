@@ -45,5 +45,23 @@ function grepOperation(fileName, word){
     return;
 }
 
+// sort operation on the sentences 
 
-module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation}
+function sortOperation(fileName){
+    fs.readFile(fileName, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        var dataFromFile = data.toString(); 
+        var customDelimiter = /[.!?]/
+        var arrayOfStrings = dataFromFile.split(customDelimiter);
+        arrayOfStrings.sort();
+        console.log(arrayOfStrings);
+    })
+
+    return;
+}
+
+module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation, sortOperation: sortOperation}
