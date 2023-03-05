@@ -64,4 +64,23 @@ function sortOperation(fileName){
     return;
 }
 
-module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation, sortOperation: sortOperation}
+// tail operation on the sentence 
+
+function tailOperation(filename, n){
+    fs.readFile(filename, (err, data) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        
+        var dataFromFile = data.toString();
+        var customDelimiter = /[.!?]/
+        var arrayOfStrings = dataFromFile.split(customDelimiter);
+        var res = arrayOfStrings.slice(0-n); 
+        
+        console.log(res);
+        return;
+    })
+}
+
+module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation, sortOperation: sortOperation, tailOperation: tailOperation}
