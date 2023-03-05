@@ -77,6 +77,19 @@ if(yargs.argv.sort == true){
     return;
 }
 
+if(yargs.argv.tail == true){
+    var filename = yargs.argv._[0]; 
+    var n = yargs.argv._[1];
+
+    if(filename == null){
+        console.log("Please enter a valid file address"); 
+        return;
+    }
+
+    fileHandling.tailOperation(fileName, n);
+    return;
+}
+
 if(yargs.argv._[0] == null){
     utils.showHelp();
     return;
