@@ -55,7 +55,7 @@ function sortOperation(fileName){
         }
 
         var dataFromFile = data.toString(); 
-        var customDelimiter = /[.!?]/
+        var customDelimiter = /\r?\n/
         var arrayOfStrings = dataFromFile.split(customDelimiter);
         arrayOfStrings.sort();
         console.log(arrayOfStrings);
@@ -74,10 +74,9 @@ function tailOperation(filename, n){
         }
         
         var dataFromFile = data.toString();
-        var customDelimiter = /[.!?]/
+        var customDelimiter = /\r?\n/
         var arrayOfStrings = dataFromFile.split(customDelimiter);
-        var res = arrayOfStrings.slice(0-n); 
-        
+        var res = arrayOfStrings.slice(-n); 
         console.log(res);
         return;
     })
