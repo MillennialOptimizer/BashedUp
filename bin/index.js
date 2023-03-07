@@ -86,7 +86,7 @@ if(yargs.argv.tail == true){
         return;
     }
 
-    fileHandling.tailOperation(fileName, n);
+    fileHandling.tailOperation(filename, n);
     return;
 }
 
