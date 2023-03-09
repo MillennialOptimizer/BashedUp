@@ -90,6 +90,18 @@ if(yargs.argv.tail == true){
     return;
 }
 
+if(yargs.argv.wc == true){
+    var filename = yargs.argv._[0]; 
+
+    if(filename == null){
+        console.log("Please enter a valid filename"); 
+        return; 
+    }
+
+    fileHandling.wcOperation(filename); 
+    return;
+}
+
 if(yargs.argv._[0] == null){
     utils.showHelp();
     return;

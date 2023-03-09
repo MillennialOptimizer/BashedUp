@@ -82,4 +82,38 @@ function tailOperation(filename, n){
     })
 }
 
-module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation, sortOperation: sortOperation, tailOperation: tailOperation}
+function countWordsInALine(str){
+    var len = str.length; 
+    var words = 0; 
+    for(var i = 0; i < len; i++){
+        if(str[i] === ' '){
+            while(i < len-1 && str[i] === str[i+1])
+                i++; 
+            if(i === len-1)
+                continue;
+            words++; 
+        }
+    }
+    return words + 1;
+}
+// word count operation on the sentence 
+
+function wcOperation(filename){
+    fs.readFile(filename, (err, data) => {
+        if(err){
+            console.log(err); 
+            return;
+        }
+        var dataFromFile = data.toString();
+        var customDelimiter = /\r?\n/
+        var arrayOfStrings = dataFromFile.split(customDelimiter);
+        var totalWords = 0; 
+        for(var i = 0; i < arrayOfStrings.length; i++){
+            totalWords += (countWordsInALine(arrayOfStrings[i]));
+        }
+        console.log(totalWords);
+    })
+    return;
+}
+
+module.exports = {lsOperation: lsOperation, catOperation: catOperation, grepOperation: grepOperation, sortOperation: sortOperation, tailOperation: tailOperation, wcOperation: wcOperation}
